@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Usuario Administrador</title>
+</h:head>
+<h:body style="background-color: bisque">
+    <div class="ui-g">
+        <div class="ui-g-1"><p:graphicImage value="imagenes/iconos/adopcion.png"/></div>
+        <div class="ui-g-10">
+            <h:form>
+                <p:menubar>
+                    <p:menuitem value="Perfil"/>
+                    <p:submenu label="Mascotas">
+                        <p:menuitem value="Lista"/>
+                        <p:menuitem value="Agregar"/>
+                    </p:submenu>
+                    <p:menuitem value="Formularios"/>
+                    <p:menuitem value="Adopciones"/>
+                    <p:submenu label="Empleados">
+                        <p:menuitem value="Lista" disabled="true"/>
+                        <p:menuitem value="Nuevo empleado"/>
+                    </p:submenu>
+
+                    <p:menuitem value="Administrador" style="font-size: 25px; margin-left: 107px" url="administrador.xhtml"/>
+                    <f:facet name="options">
+                        <p:button value="Cerrar Sesion" icon="ui-icon-cancel" style="background-color: crimson"/>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+    </div>
+
+</h:body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Inicio Sesion</title>
+
+</h:head>
+<h:body style="background-color: bisque">
+    <div class="ui-g">
+        <div class="ui-g-1"><p:graphicImage value="imagenes/iconos/adopcion.png"/></div>
+        <div class="ui-g-10">
+            <h:form>
+                <p:menubar>
+                    <p:menuitem value="Home" icon="ui-icon-arrowthick-1-w" url="index.xhtml"/>
+                    <p:menuitem value="REGISTRO" style="font-size: 25px; margin-left: 350px" url="registro.xhtml"/>
+                    <f:facet name="options">
+                        <p:button value="Iniciar sesion" icon="ui-icon-key" outcome="inicioSesion"/>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+
+        </div>
+    </div>
+    <h:form style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc">
+        <p:panel id="panel" header="REGISTRO USUARIO ADOPTANTE" style="background-color: #F2A341;text-align: left">
+            <h:panelGrid columns="2" style="">
+                <p:outputLabel value="No.Documento:" style="color: black"/>
+                <p:inputText id="txtNoDocumento" style="color: black"/>
+                <p:outputLabel value="Nombre completo:" style="color: black" />
+                <p:inputText id="txtNombre" style="color: black"/>
+                <p:outputLabel value="Direccion:" style="color: black" />
+                <p:inputText id="txtDireccion" style="color: black"/>
+                <p:outputLabel value="Email:" style="color: black" />
+                <p:inputText id="txtEmail" style="color: black"/>
+                <p:outputLabel value="Foto:" style="color: black" />
+                <p:fileUpload value="#{registroBean.file}" mode="simple" skinSimple="true"/>
+                <p:outputLabel value="Contraseña:" style="color: black" />
+                <p:password id="txtContraseña" style="color: black"/>
+            </h:panelGrid>
+            <p:commandButton id="btnReUsuarios" value="Registrar" style="background-color: cyan"/>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

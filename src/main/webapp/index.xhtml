@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Adopcion de mascotas</title>
+
+</h:head>
+
+<h:body id="cuerpo" style="background-color: bisque">
+    <div class="ui-g">
+        <div class="ui-g-1"><p:graphicImage value="imagenes/iconos/adopcion.png"/></div>
+        <div class="ui-g-10">
+            <h:form>
+            <p:menubar>
+                    <p:menuitem value="Requisitos basicos" style="color: blue"/>
+                    <p:menuitem value="paso a paso" style="color: blue"/>
+                    <p:menuitem value="Adopción de mascotas" style="margin-left: 100px; font-size: 25px;" url="index.xhtml"/>
+                    <f:facet name="options">
+                        <p:button value="Iniciar sesion" icon="ui-icon-key" outcome="inicioSesion"/>
+                        <p:button value="Registrar" icon="ui-icon-clipboard" outcome="registro"/>
+                    </f:facet>
+            </p:menubar>
+            </h:form>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-1" style="margin-left: 117px;width: 350px ;border-style: hidden;background-color: #F2A341">
+            <h2 style="text-align: center">Bienvenidos a la Aplicación para adopción de mascotas.</h2>
+            <p>OBJETO: Se van a ingresar diferentes mascotas, cada mascota debe tener sus datos básicos, las personas se postulan para poder adoptar un tipo de mascota
+            y en base a una puntuación que tendrá cada persona postulada se decidirá si es apta o no para adoptar a dicha mascota; en caso de que se genere la solicitud
+            de adopción será aprobada o desaprobada y este evento deberá guardarse en un historial.
+            </p>
+        </div>
+        <div class="ui-g-1" style="margin-left: 80px">
+            <p:imageSwitch effect="turnDown" style="background-color: bisque;">
+                <ui:repeat value="#{indexBean.images}" var="image" >
+                    <p:graphicImage value="/imagenes/index/#{image}" style="height: 400px; width: 500px"/>
+                </ui:repeat>
+            </p:imageSwitch>
+        </div>
+    </div>
+    <div class="p-grid" style="margin-left: 117px;margin-right: 115px;border-style: hidden;background-color: #F2A341">
+        <p>contacto.</p>
+        <p>celular:000-0000000</p>
+        <p>direccion: calle algo numero algo-algo</p>
+        <p>email:correo</p>
+    </div>
+</h:body>
+</html>
