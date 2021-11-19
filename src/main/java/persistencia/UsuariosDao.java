@@ -1,7 +1,6 @@
-package util;
+package persistencia;
 
 import modelo.Usuario;
-
 import java.awt.Component;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,14 +13,17 @@ import javax.swing.JOptionPane;
 
 public class UsuariosDao {
 
-
-    public class GestorPersistencia {
         private final String NOMBREAP = "usuarios.asi";
+        private ArrayList<Usuario> usuarios;
 
-        public GestorPersistencia() {
+        public UsuariosDao() {
+            if(abrirArchivo()==null){
+                nuevoArchivo();
+            }
         }
 
-        public boolean guardarArchivo(ArrayList<Usuario> usuarios) {
+        private void nuevoArchivo(){
+            usuarios=new ArrayList();
             FileOutputStream fo = null;
 
             try {
@@ -29,8 +31,6 @@ public class UsuariosDao {
                 ObjectOutputStream oo = new ObjectOutputStream(fo);
                 oo.writeObject(usuarios);
                 oo.close();
-                boolean var4 = true;
-                return var4;
             } catch (FileNotFoundException var16) {
                 var16.printStackTrace();
             } catch (IOException var17) {
@@ -40,36 +40,52 @@ public class UsuariosDao {
                     fo.close();
                 } catch (IOException var15) {
                 }
-
             }
+        }
 
+        public boolean guardarArchivo(ArrayList<Usuario> usuarios) {
+            FileOutputStream fo = null;
+            this.usuarios=usuarios;
+            try {
+                fo = new FileOutputStream("usuarios.asi");
+                ObjectOutputStream oo = new ObjectOutputStream(fo);
+                oo.writeObject(this.usuarios);
+                oo.close();
+                return true;
+            } catch (FileNotFoundException var16) {
+                var16.printStackTrace();
+            } catch (IOException var17) {
+                var17.printStackTrace();
+            } finally {
+                try {
+                    fo.close();
+                } catch (IOException var15) {
+                }
+            }
             return false;
         }
 
         public ArrayList<Usuario> abrirArchivo() {
-            ArrayList<Usuario> contactosArchivo = null;
             FileInputStream fi = null;
-
             try {
                 try {
                     fi = new FileInputStream("usuarios.asi");
                     ObjectInputStream oi = new ObjectInputStream(fi);
-                    contactosArchivo = (ArrayList)oi.readObject();
+                    this.usuarios = (ArrayList<Usuario>)oi.readObject();
                     oi.close();
                     fi.close();
-                    return contactosArchivo;
+                    return usuarios;
                 } catch (FileNotFoundException var10) {
-                    JOptionPane.showMessageDialog((Component)null, "Archivo de contactos no encontrado.\nse creera uno nuevo", "Error", 0);
+                    nuevoArchivo();
                 } catch (IOException var11) {
                     var11.printStackTrace();
                 } catch (ClassNotFoundException var12) {
                     var12.printStackTrace();
                 }
-
                 return null;
             } finally {
                 ;
             }
         }
     }
-}
+

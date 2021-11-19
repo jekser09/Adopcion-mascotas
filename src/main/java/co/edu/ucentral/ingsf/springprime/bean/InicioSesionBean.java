@@ -2,17 +2,18 @@ package co.edu.ucentral.ingsf.springprime.bean;
 
 import modelo.Usuario;
 
-import javax.annotation.PostConstruct;
+import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class InicioSesionBean {
-    private ArrayList<Usuario> listaUsuarios;
-    @PostConstruct
+@RequestScoped
+public class InicioSesionBean implements Serializable {
+
     public void init(){
 
-    }
-
-    public void iniciarSesion(double documento,String contraseña){
 
     }
+
+
+
 }

@@ -1,22 +1,18 @@
 package modelo;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private double id;
     private String contraseña;
     private String nombre;
-    private int tipoUsuario;
     private String email;
+    private String idMascota;
+    private int tipoUsuario=0;
 
-    public Usuario() {
-    }
 
-    public double getId() {
-        return id;
-    }
-
-    public void setId(double id) {
-        this.id = id;
+    public Usuario(){
     }
 
     public String getContraseña() {
@@ -35,6 +31,22 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(String idMascota) {
+        this.idMascota = idMascota;
+    }
+
     public int getTipoUsuario() {
         return tipoUsuario;
     }
@@ -43,11 +55,11 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getEmail() {
-        return email;
+    public double getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(double id) {
+        this.id = id;
     }
 }
