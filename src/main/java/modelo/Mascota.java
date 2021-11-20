@@ -8,12 +8,10 @@ public class Mascota {
     private String nombre="";
     private String tipoAnimal="";
     private String raza="";
-    private ArrayList vacunas;
-    private ArrayList fotos;
-    private ArrayList enfermedades;
+    private String foto;
     private int edad;
     private Date fechaAdopcion;
-    private double id=0;
+    private int id=0;
 
     public Mascota() {
     }
@@ -42,28 +40,12 @@ public class Mascota {
         this.raza = raza;
     }
 
-    public ArrayList getVacunas() {
-        return vacunas;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setVacunas(ArrayList vacunas) {
-        this.vacunas = vacunas;
-    }
-
-    public ArrayList getFotos() {
-        return fotos;
-    }
-
-    public void setFotos(ArrayList fotos) {
-        this.fotos = fotos;
-    }
-
-    public ArrayList getEnfermedades() {
-        return enfermedades;
-    }
-
-    public void setEnfermedades(ArrayList enfermedades) {
-        this.enfermedades = enfermedades;
+    public void setFotos(String foto) {
+        this.foto = foto;
     }
 
     public int getEdad() {
@@ -86,7 +68,7 @@ public class Mascota {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

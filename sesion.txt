@@ -1,0 +1,1 @@
+|ID: 1.0 |Nombre: jekser |Email: jekser07@hotmail.com |Id-Mascota: sin adoptar |Tipo-Usuario: 1 |

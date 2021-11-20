@@ -1,29 +1,35 @@
 package logica;
 
-import org.springframework.stereotype.Service;
-import persistencia.UsuariosDao;
+import persistencia.UsuarioDao;
 import modelo.Usuario;
 
-import java.applet.Applet;
 import java.util.ArrayList;
 
 
 public class UsuariosCtrl {
-    private UsuariosDao udao;
+
+    private UsuarioDao udao;
     private ArrayList<Usuario> listaUsuarios;
-    private Usuario user;
+    private int sesionActual=0;
 
     public UsuariosCtrl(){
         cargarUsuarios();
     }
+    public int getSesionActual() {
+        return sesionActual;
+    }
+
+    public void setSesionActual(int sesionActual) {
+        this.sesionActual = sesionActual;
+    }
 
     public void cargarUsuarios(){
-        udao=new UsuariosDao();
+        udao=new UsuarioDao();
         listaUsuarios=udao.abrirArchivo();
     }
 
     public void actualizarPersistencia(){
-        udao=new UsuariosDao();
+        udao=new UsuarioDao();
         udao.guardarArchivo(listaUsuarios);
     }
 
@@ -34,6 +40,7 @@ public class UsuariosCtrl {
         }
         for(int i=0;i<listaUsuarios.size();i++){
             if(id==listaUsuarios.get(i).getId() && contraseña.equals(listaUsuarios.get(i).getContraseña())){
+                sesionActual=id;
                 return listaUsuarios.get(i).getTipoUsuario();
             }
         }
@@ -44,7 +51,6 @@ public class UsuariosCtrl {
         if(user==null){
             return false;
         }
-
         if(listaUsuarios.isEmpty()) {
             cargarUsuarios();
         }else{
@@ -58,11 +64,6 @@ public class UsuariosCtrl {
         listaUsuarios.add(user);
         actualizarPersistencia();
         return true;
-
-
-
-
-
     }
 
     public Usuario buscarUsuario(int documento){

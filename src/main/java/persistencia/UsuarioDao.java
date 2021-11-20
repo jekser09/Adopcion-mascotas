@@ -11,12 +11,12 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class UsuariosDao {
+public class UsuarioDao {
 
         private final String NOMBREAP = "usuarios.asi";
         private ArrayList<Usuario> usuarios;
 
-        public UsuariosDao() {
+        public UsuarioDao() {
             if(abrirArchivo()==null){
                 nuevoArchivo();
             }
@@ -84,7 +84,7 @@ public class UsuariosDao {
                 }
                 return null;
             } finally {
-                ;
+
             }
         }
     }

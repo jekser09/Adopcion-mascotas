@@ -19,7 +19,7 @@
                 <p:menubar>
                     <p:submenu label="Mascotas">
                         <p:menuitem value="Lista"/>
-                        <p:menuitem value="Agregar"/>
+                        <p:menuitem value="Agregar" url="agregarMascotas.xhtml"/>
                     </p:submenu>
                     <p:menuitem value="Formularios"/>
                     <p:menuitem value="Adopciones"/>
@@ -35,21 +35,20 @@
             </h:form>
         </div>
     </div>
-    <div class="ui-g">
-        <div class="ui-g-1" style="margin-left: 117px;width: 350px ;border-style: hidden;background-color: #F2A341">
-            <h2 style="text-align: center">Bienvenidos a la Aplicación para adopción de mascotas.</h2>
-            <p>OBJETO: Se van a ingresar diferentes mascotas, cada mascota debe tener sus datos básicos, las personas se postulan para poder adoptar un tipo de mascota
-                y en base a una puntuación que tendrá cada persona postulada se decidirá si es apta o no para adoptar a dicha mascota; en caso de que se genere la solicitud
-                de adopción será aprobada o desaprobada y este evento deberá guardarse en un historial.
-            </p>
-        </div>
-    </div>
-    <div class="p-grid" style="margin-left: 117px;margin-right: 115px;border-style: hidden;background-color: #F2A341">
-        <p>contacto.</p>
-        <p>celular:000-0000000</p>
-        <p>direccion: calle algo numero algo-algo</p>
-        <p>email:correo</p>
-    </div>
+    <p:panelGrid columns="1" style="margin-left: 12pc; margin-right:12pc;margin-top: 3pc">
+        <p:panel id="basic" header="Descripción" footer="Información admin" style="background-color: gray">
+            <h:panelGrid columns="2">
+                <p:graphicImage value="imagenes/admin/admin.png" />
+                <h:outputText value="Es capáz de la creación de nuevos usuarios (empleado),
+                agregar, editar o eliminar la información de las mascotas, visualizar la lista de mascotas,
+                visualizar la lista de formularios así como desaprobar o aprobar formularios y visualizar
+                las solicitudes de adopción así como desaprobar o aprobar dichas solicitudes." style="color: black"/>
+                <div>
+                    <h:outputText value="#{administradorBean.infoUser()}" style="color: black"/>
+                </div>
+            </h:panelGrid>
+        </p:panel>
+    </p:panelGrid>
 
 </h:body>
 </html>

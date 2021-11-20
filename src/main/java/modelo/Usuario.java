@@ -8,7 +8,7 @@ public class Usuario implements Serializable {
     private String nombre;
     private String contraseña;
     private String email;
-    private String idMascota="none";
+    private String idMascota="sin adoptar";
     private int tipoUsuario;
 
 

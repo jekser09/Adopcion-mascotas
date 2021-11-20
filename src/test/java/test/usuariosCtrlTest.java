@@ -24,7 +24,7 @@ class usuariosCtrlTest {
         UsuariosCtrl ctrl=new UsuariosCtrl();
         user1.setId(1);
         user1.setNombre("jekser");
-        user1.setEmail("jeker07@hotmail.com");
+        user1.setEmail("jekser07@hotmail.com");
         user1.setContraseña("1234");
         user1.setTipoUsuario(1);
         ctrl.agregarUsuario(user1);
@@ -42,8 +42,8 @@ class usuariosCtrlTest {
     @Test
     void buscarUsuario() {
         UsuariosCtrl ctrl=new UsuariosCtrl();
-        System.out.print(ctrl.buscarUsuario(1).getContraseña());
-        if(ctrl.buscarUsuario(1)==null){
+        System.out.print(ctrl.buscarUsuario(1016).getContraseña());
+        if(ctrl.buscarUsuario(1016)==null){
             System.out.println("oks");
         }else{
             System.out.println("si estoy");

@@ -1,17 +1,17 @@
 package test;
 
-import persistencia.UsuariosDao;
+import persistencia.UsuarioDao;
 import modelo.Usuario;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-class UsuariosDaoTest {
+class UsuarioDaoTest {
     @Test
     void guardarArchivo(){
         Usuario user=new Usuario();
         ArrayList<Usuario> usuarios=new ArrayList<>();
-        UsuariosDao arch=new UsuariosDao();
+        UsuarioDao arch=new UsuarioDao();
         user.setId(1);
         user.setContraseña("1234");
         user.setNombre("carlos");
@@ -23,7 +23,7 @@ class UsuariosDaoTest {
     }
     @Test
     void abrirArchivo(){
-        UsuariosDao arch=new UsuariosDao();
+        UsuarioDao arch=new UsuarioDao();
         if (arch.abrirArchivo().isEmpty()){
             System.out.print("lista vacia");
         }else{
