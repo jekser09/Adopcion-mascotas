@@ -31,21 +31,22 @@
     </div>
     <h:form style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc">
         <p:panel id="panel" header="REGISTRO USUARIO ADOPTANTE" style="background-color: #F2A341;text-align: left">
+            <p:messages id="msgs"/>
+
             <h:panelGrid columns="2" style="">
-                <p:outputLabel value="No.Documento:" style="color: black"/>
-                <p:inputText id="txtNoDocumento" style="color: black"/>
-                <p:outputLabel value="Nombre completo:" style="color: black" />
-                <p:inputText id="txtNombre" style="color: black"/>
-                <p:outputLabel value="Direccion:" style="color: black" />
-                <p:inputText id="txtDireccion" style="color: black"/>
-                <p:outputLabel value="Email:" style="color: black" />
-                <p:inputText id="txtEmail" style="color: black"/>
-                <p:outputLabel value="Foto:" style="color: black" />
-                <p:fileUpload value="#{registroBean.file}" mode="simple" skinSimple="true"/>
-                <p:outputLabel value="Contraseña:" style="color: black" />
-                <p:password id="txtContraseña" style="color: black"/>
+                <p:outputLabel for="txtNoDocumento" value="No.Documento:" style="color: black"/>
+                <p:inputText id="txtNoDocumento" label="No.Documento" value="#{registroBean.id}" style="color: black">
+                    <f:validateLength minimum="0" />
+                </p:inputText>
+                <p:outputLabel for="txtNombre" value="Nombre completo:" style="color: black" />
+                <p:inputText id="txtNombre" label="Nombre completo" value="#{registroBean.nombre}" style="color: black"/>
+                <p:outputLabel for="txtContraseña" value="Contraseña:" style="color: black" />
+                <p:password id="txtContraseña" label="Contraseña" value="#{registroBean.contraseña}" style="color: black"/>
+                <p:outputLabel for="txtEmail" value="Email:" style="color: black" />
+                <p:inputText id="txtEmail" label="Email" value="#{registroBean.email}" style="color: black"/>
             </h:panelGrid>
-            <p:commandButton id="btnReUsuarios" value="Registrar" style="background-color: cyan"/>
+            <p:commandButton id="btnReUsuarios" value="Registrar" update="panel" action="#{registroBean.registro()}" style="background-color: cyan"/>
+
         </p:panel>
     </h:form>
 </h:body>

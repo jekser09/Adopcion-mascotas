@@ -24,6 +24,10 @@ class UsuariosDaoTest {
     @Test
     void abrirArchivo(){
         UsuariosDao arch=new UsuariosDao();
-        System.out.print(arch.abrirArchivo().get(0).getTipoUsuario());
+        if (arch.abrirArchivo().isEmpty()){
+            System.out.print("lista vacia");
+        }else{
+            System.out.print("uno o mas elementos");
+        }
     }
 }

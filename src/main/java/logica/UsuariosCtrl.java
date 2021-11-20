@@ -1,9 +1,12 @@
 package logica;
 
+import org.springframework.stereotype.Service;
 import persistencia.UsuariosDao;
 import modelo.Usuario;
 
+import java.applet.Applet;
 import java.util.ArrayList;
+
 
 public class UsuariosCtrl {
     private UsuariosDao udao;
@@ -24,7 +27,7 @@ public class UsuariosCtrl {
         udao.guardarArchivo(listaUsuarios);
     }
 
-    public int iniciarSesion(double id, String contraseña){
+    public int iniciarSesion(int id, String contraseña){
         if(listaUsuarios==null){
             cargarUsuarios();
             return 0;
@@ -41,24 +44,28 @@ public class UsuariosCtrl {
         if(user==null){
             return false;
         }
-        if(listaUsuarios==null){
+
+        if(listaUsuarios.isEmpty()) {
             cargarUsuarios();
         }else{
-            for(int i=0;i<listaUsuarios.size();i++){
-                if(user.getId()==listaUsuarios.get(i).getId()){
-                    return false;
-                }else{
-                    listaUsuarios.add(user);
-                    actualizarPersistencia();
-                    return true;
-                }
+            for(int i=0;i<listaUsuarios.size();i++) {
+                if (user.getId() == listaUsuarios.get(i).getId()) return false;
             }
-
         }
-         return false;
+
+        if(listaUsuarios==null) listaUsuarios=new ArrayList<>();
+
+        listaUsuarios.add(user);
+        actualizarPersistencia();
+        return true;
+
+
+
+
+
     }
 
-    public Usuario buscarUsuario(double documento){
+    public Usuario buscarUsuario(int documento){
         if(listaUsuarios==null){
             cargarUsuarios();
             return null;

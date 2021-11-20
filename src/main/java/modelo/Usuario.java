@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private double id;
-    private String contraseña;
+    private int id;
     private String nombre;
+    private String contraseña;
     private String email;
-    private String idMascota;
-    private int tipoUsuario=0;
+    private String idMascota="none";
+    private int tipoUsuario;
 
 
     public Usuario(){
@@ -59,7 +59,7 @@ public class Usuario implements Serializable {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

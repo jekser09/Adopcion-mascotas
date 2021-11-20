@@ -17,7 +17,6 @@
         <div class="ui-g-10">
             <h:form>
                 <p:menubar>
-                    <p:menuitem value="Perfil"/>
                     <p:submenu label="Mascotas">
                         <p:menuitem value="Lista"/>
                         <p:menuitem value="Agregar"/>
@@ -28,14 +27,28 @@
                         <p:menuitem value="Lista" disabled="true"/>
                         <p:menuitem value="Nuevo empleado"/>
                     </p:submenu>
-
                     <p:menuitem value="Administrador" style="font-size: 25px; margin-left: 107px" url="administrador.xhtml"/>
                     <f:facet name="options">
-                        <p:button value="Cerrar Sesion" icon="ui-icon-cancel" style="background-color: crimson"/>
+                        <p:button value="Cerrar Sesion" icon="ui-icon-cancel" outcome="index.xhtml" style="background-color: crimson"/>
                     </f:facet>
                 </p:menubar>
             </h:form>
         </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-1" style="margin-left: 117px;width: 350px ;border-style: hidden;background-color: #F2A341">
+            <h2 style="text-align: center">Bienvenidos a la Aplicación para adopción de mascotas.</h2>
+            <p>OBJETO: Se van a ingresar diferentes mascotas, cada mascota debe tener sus datos básicos, las personas se postulan para poder adoptar un tipo de mascota
+                y en base a una puntuación que tendrá cada persona postulada se decidirá si es apta o no para adoptar a dicha mascota; en caso de que se genere la solicitud
+                de adopción será aprobada o desaprobada y este evento deberá guardarse en un historial.
+            </p>
+        </div>
+    </div>
+    <div class="p-grid" style="margin-left: 117px;margin-right: 115px;border-style: hidden;background-color: #F2A341">
+        <p>contacto.</p>
+        <p>celular:000-0000000</p>
+        <p>direccion: calle algo numero algo-algo</p>
+        <p>email:correo</p>
     </div>
 
 </h:body>
