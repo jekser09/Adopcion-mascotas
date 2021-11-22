@@ -69,6 +69,8 @@ public class UsuariosCtrl {
     public Usuario buscarUsuario(int documento){
         if(listaUsuarios==null){
             cargarUsuarios();
+        }
+        if(listaUsuarios.isEmpty()){
             return null;
         }
         for(int i=0;i<listaUsuarios.size();i++){
