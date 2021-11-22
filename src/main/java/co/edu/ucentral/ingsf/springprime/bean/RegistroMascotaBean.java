@@ -1,7 +1,9 @@
 package co.edu.ucentral.ingsf.springprime.bean;
 
+import logica.MascotasCtrl;
 import lombok.Getter;
 import lombok.Setter;
+import modelo.Mascota;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 import org.springframework.stereotype.Component;
@@ -26,18 +28,36 @@ import java.util.Date;
 @SessionScoped
 public class RegistroMascotaBean implements Serializable {
     private String nombre;
+    private Integer id;
     private Date edad;
     private String tipo;
     private UploadedFile file;
 
 
-    public void prueba(){
-        if(file!=null){
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("sirve primefaces"));
+    public void registrar(){
+        /*FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(file.getFileName()));*/
+        MascotasCtrl ctrl=new MascotasCtrl();
+        if(nombre!=null && edad!=null && tipo!=null && id!=null){
+            Mascota mascota=new Mascota();
+            mascota.setNombre(nombre);
+            mascota.setId(id);
+            mascota.setEdad(edad);
+            mascota.setTipoAnimal(tipo);
+            if(ctrl.agregarMascota(mascota)){
+                nombre="";
+                id=0;
+                edad=null;
+                tipo="";
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("Mascota guardada <3"));
+            }else{
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("Esta mascota ya esta registrada"));
+            }
         }else{
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("no sirve primefaces"));
+                    new FacesMessage("Rellene todos los campos"));
         }
     }
 

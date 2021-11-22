@@ -1,16 +1,18 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Mascota {
+public class Mascota implements Serializable {
 
     private String nombre="";
+    private int id;
     private String tipoAnimal="";
-    private String foto;
-    private int edad;
-    private Date fechaAdopcion;
-    private int id=0;
+    private String foto="";
+    private Date edad;
+    private Date fechaAdopcion=null;
+
 
     public Mascota() {
     }
@@ -39,11 +41,11 @@ public class Mascota {
         this.foto = foto;
     }
 
-    public int getEdad() {
+    public Date getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Date edad) {
         this.edad = edad;
     }
 

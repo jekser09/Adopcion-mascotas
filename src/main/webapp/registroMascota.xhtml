@@ -25,10 +25,12 @@
             </h:form>
         </div>
     </div>
-    <h:form enctype="multipart/form-data" style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc" >
+    <h:form enctype="multipart/form-data" style="margin-left: 29pc;width: 25pc;height: 34pc;margin-top: 5pc" >
         <p:panel id="panel" header="DATOS MASCOTA" style="background-color: #F2A341;text-align: left">
             <p:messages id="msgs"/>
             <h:panelGrid columns="2">
+                <p:outputLabel for="txtId" value="Id:" style="color: black"/>
+                <p:inputText id="txtId" label="Id" value="#{registroMascotaBean.id}" style="color: black"/>
                 <p:outputLabel for="txtNombre" value="Nombre:" style="color: black"/>
                 <p:inputText id="txtNombre" label="Nombre" value="#{registroMascotaBean.nombre}" style="color: black"/>
                 <p:outputLabel for="dpEdad" value="Edad:"  style="color: black"/>
@@ -36,9 +38,9 @@
                 <p:outputLabel for="txtTipo" value="Tipo:" style="color: black"/>
                 <p:inputText id="txtTipo" label="Tipo" value="#{registroMascotaBean.tipo}" style="color: black"/>
                 <p:outputLabel for="foto" value="foto:" style="color: black"/>
-                <p:fileUpload id="foto" label="foto"  value="#{registroMascotaBean.file}" mode="simple" skinSimple="true"/>
+                <p:fileUpload id="foto" label="foto"  value="#{registroMascotaBean.file}" mode="simple" auto="true" skinSimple="true"/>
             </h:panelGrid>
-            <p:commandButton value="Registrar" update="panel" action="#{registroMascotaBean.prueba}" style="background-color: cyan"/>
+            <p:commandButton value="Registrar" update="panel" action="#{registroMascotaBean.registrar()}" style="background-color: cyan"/>
         </p:panel>
     </h:form>
 </h:body>
