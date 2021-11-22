@@ -41,51 +41,6 @@ import java.util.List;
             images.add("animal"+i+".jpg");
         }
 
-        //First submenu
-        DefaultSubMenu firstSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Submenu")
-                .build();
-
-        DefaultMenuItem item = DefaultMenuItem.builder()
-                .value("External")
-                .url("http://www.primefaces.org")
-                .icon("pi pi-home")
-                .build();
-        firstSubmenu.getElements().add(item);
-
-        model.getElements().add(firstSubmenu);
-
-        //Second submenu
-        DefaultSubMenu secondSubmenu = DefaultSubMenu.builder()
-                .label("Dynamic Actions")
-                .build();
-
-        item = DefaultMenuItem.builder()
-                .value("Save")
-                .icon("pi pi-save")
-                .command("#{menuView.save}")
-                .update("messages")
-                .build();
-        secondSubmenu.getElements().add(item);
-
-        item = DefaultMenuItem.builder()
-                .value("Delete")
-                .icon("pi pi-times")
-                .command("#{menuView.delete}")
-                .ajax(false)
-                .build();
-        secondSubmenu.getElements().add(item);
-
-        item = DefaultMenuItem.builder()
-                .value("Redirect")
-                .icon("pi pi-search")
-                .command("#{menuView.redirect}")
-                .build();
-        secondSubmenu.getElements().add(item);
-
-        model.getElements().add(secondSubmenu);
-
-
     }
 
     public List<String> getImages() {

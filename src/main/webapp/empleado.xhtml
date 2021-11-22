@@ -17,7 +17,6 @@
         <div class="ui-g-10">
             <h:form>
                 <p:menubar>
-                    <p:menuitem value="Perfil"/>
                     <p:submenu label="Mascotas">
                         <p:menuitem value="Lista"/>
                         <p:menuitem value="Agregar" disabled="true"/>
@@ -29,7 +28,7 @@
                         <p:menuitem value="Nuevo empleado"/>
                     </p:submenu>
 
-                    <p:menuitem value="Empleado" style="font-size: 25px; margin-left: 107px" url="administrador.xhtml"/>
+                    <p:menuitem value="Empleado" style="font-size: 25px; margin-left: 130px" url="administrador.xhtml"/>
                     <f:facet name="options">
                         <p:button value="Cerrar Sesion" icon="ui-icon-cancel" outcome="index.xhtml" Style="background-color: crimson"/>
                     </f:facet>
@@ -37,6 +36,21 @@
             </h:form>
         </div>
     </div>
+    <p:panelGrid columns="1" style="margin-left: 12pc; margin-right:12pc;margin-top: 3pc">
+        <p:panel id="basic" header="Descripción" footer="Información empleado" style="background-color: gray">
+
+            <h:panelGrid columns="2">
+                <p:graphicImage value="imagenes/usuarios/empleado.png" />
+                <h:outputText value="este usuario será capaz de visualizar la lista de mascotas, visualizar
+                 la lista de formularios y aprobarlos o desaprobarlos y también podrá visualizar la lista de
+                 solicitudes de adopción y podrá aprobarlas o desaprobarlas" style="color: black"/>
+                <div>
+                    <h:outputText value="#{empleadoBean.infoUser()}" style="color: black"/>
+                    <p:messages id="msgs"/>
+                </div>
+            </h:panelGrid>
+        </p:panel>
+    </p:panelGrid>
 
 </h:body>
 </html>

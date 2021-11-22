@@ -9,10 +9,18 @@ public class Mascota implements Serializable {
     private String nombre="";
     private int id;
     private String tipoAnimal="";
-    private String foto="";
-    private Date edad;
-    private Date fechaAdopcion=null;
+    private String foto;
+    private String adoptado;
 
+    public String getAdoptado() {
+        return adoptado;
+    }
+
+    public void setAdoptado(String adoptado) {
+        this.adoptado = adoptado;
+    }
+
+    private Date edad;
 
     public Mascota() {
     }
@@ -37,7 +45,7 @@ public class Mascota implements Serializable {
         return foto;
     }
 
-    public void setFotos(String foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 
@@ -47,14 +55,6 @@ public class Mascota implements Serializable {
 
     public void setEdad(Date edad) {
         this.edad = edad;
-    }
-
-    public Date getFechaAdopcion() {
-        return fechaAdopcion;
-    }
-
-    public void setFechaAdopcion(Date fechaAdopcion) {
-        this.fechaAdopcion = fechaAdopcion;
     }
 
     public double getId() {

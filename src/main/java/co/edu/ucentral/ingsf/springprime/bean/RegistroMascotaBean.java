@@ -40,10 +40,13 @@ public class RegistroMascotaBean implements Serializable {
         MascotasCtrl ctrl=new MascotasCtrl();
         if(nombre!=null && edad!=null && tipo!=null && id!=null){
             Mascota mascota=new Mascota();
-            mascota.setNombre(nombre);
             mascota.setId(id);
+            mascota.setNombre(nombre);
             mascota.setEdad(edad);
             mascota.setTipoAnimal(tipo);
+            mascota.setAdoptado("No");
+            mascota.setFoto("imagenes/mascotas/pronto.png");
+
             if(ctrl.agregarMascota(mascota)){
                 nombre="";
                 id=0;

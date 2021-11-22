@@ -26,30 +26,41 @@
             </h:form>
         </div>
     </div>
-    <p:dataTable var="car" value="" style="margin-left: 70px; margin-right:70px ">
-        <p:column headerText="Id">
-            <h:outputText value="" />
-        </p:column>
 
-        <p:column headerText="Nombre">
-            <h:outputText value="" />
-        </p:column>
 
-        <p:column headerText="Tipo Animal">
-            <h:outputText value="" />
-        </p:column>
+    <h:form id="form" >
+        <p:commandButton value="actualizar" action="#{listaMascotasBean.prueba}" update=":form"/>
+        <p:autoUpdate/>
+        <p:dataTable  styleClass="tablaMascotas" var="listaMascotas" value="#{listaMascotasBean.mascotas}" rendered="#{listaMascotasBean.mascotas.size()>0}" style="margin-left: 70px; margin-right:70px;margin-top: 15px; text-align: center">
 
-        <p:column headerText="Edad">
-            <h:outputText value="" />
-        </p:column>
+            <p:column headerText="Foto" style="background-color: #5AB0F2; color: black; border-color: black">
+                <p:graphicImage value="#{listaMascotas.foto}"/>
+            </p:column>
 
-        <p:column headerText="Fecha Adopcion">
-            <h:outputText value="" />
-        </p:column>
+            <p:column headerText="Id" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{listaMascotas.id}" />
+            </p:column>
 
-        <p:column headerText="Foto">
-            <h:outputText value="" />
+            <p:column headerText="Nombre" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{listaMascotas.nombre}" />
+            </p:column>
+
+            <p:column headerText="Edad" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{listaMascotas.edad}" />
+            </p:column>
+
+            <p:column headerText="Tipo Animal" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{listaMascotas.tipoAnimal}" />
+            </p:column>
+
+            <p:column headerText="¿Esta adoptado?" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{listaMascotas.adoptado}" />
+            </p:column>
+
+            <p:column headerText="---------" style="background-color: #5AB0F2; color: black;border-color: black">
+            <p:button value="Adoptar" style="background-color: #1CE658; color: black"/>
         </p:column>
-    </p:dataTable>
+        </p:dataTable>
+    </h:form>
 </h:body>
 </html>

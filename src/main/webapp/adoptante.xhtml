@@ -28,6 +28,20 @@
             </h:form>
         </div>
     </div>
+    <p:panelGrid columns="1" style="margin-left: 12pc; margin-right:12pc;margin-top: 3pc">
+        <p:panel id="basic" header="Descripción" footer="Información admin" style="background-color: gray">
+
+            <h:panelGrid columns="2">
+                <p:graphicImage value="imagenes/usuarios/adopta.png" />
+                <h:outputText value="Es capáz de generar solicitudes de adopcion solo cuando rellene, envie y
+                                    y le aprueben el formulario y es capaz de visualizar la lista de mascotas" style="color: black"/>
+                <div>
+                    <h:outputText value="#{adoptanteBean.infoUser()}" style="color: black"/>
+                    <p:messages id="msgs"/>
+                </div>
+            </h:panelGrid>
+        </p:panel>
+    </p:panelGrid>
 
 </h:body>
 </html>
