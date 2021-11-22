@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Registro Mascotas</title>
+</h:head>
+<h:body style="background-color: bisque">
+    <div class="ui-g">
+        <div class="ui-g-1"><p:graphicImage value="imagenes/iconos/adopcion.png"/></div>
+        <div class="ui-g-10">
+            <h:form>
+                <p:menubar>
+                    <p:menuitem value="REGISTRO MASCOTAS" style="font-size: 25px; margin-left: 370px"/>
+                    <f:facet name="options">
+                        <p:button value="Salir" icon="ui-icon-triangle-1-w" outcome="administrador" style="background-color: crimson"/>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+    </div>
+    <h:form enctype="multipart/form-data" style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc" >
+        <p:panel id="panel" header="DATOS MASCOTA" style="background-color: #F2A341;text-align: left">
+            <p:messages id="msgs"/>
+            <h:panelGrid columns="2">
+                <p:outputLabel for="txtNombre" value="Nombre:" style="color: black"/>
+                <p:inputText id="txtNombre" label="Nombre" value="#{registroMascotaBean.nombre}" style="color: black"/>
+                <p:outputLabel for="dpEdad" value="Edad:"  style="color: black"/>
+                <p:datePicker id="dpEdad" label="Edad" value="#{registroMascotaBean.edad}" showIcon="true"/>
+                <p:outputLabel for="txtTipo" value="Tipo:" style="color: black"/>
+                <p:inputText id="txtTipo" label="Tipo" value="#{registroMascotaBean.tipo}" style="color: black"/>
+                <p:outputLabel for="foto" value="foto:" style="color: black"/>
+                <p:fileUpload id="foto" label="foto"  value="#{registroMascotaBean.file}" mode="simple" skinSimple="true"/>
+            </h:panelGrid>
+            <p:commandButton value="Registrar" update="panel" action="#{registroMascotaBean.prueba}" style="background-color: cyan"/>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

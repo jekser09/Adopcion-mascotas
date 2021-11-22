@@ -18,8 +18,8 @@
             <h:form>
                 <p:menubar>
                     <p:submenu label="Mascotas">
-                        <p:menuitem value="Lista"/>
-                        <p:menuitem value="Agregar" url="agregarMascotas.xhtml"/>
+                        <p:menuitem value="Lista" url="listaMascotas.xhtml"/>
+                        <p:menuitem value="Agregar" url="registroMascota.xhtml"/>
                     </p:submenu>
                     <p:menuitem value="Formularios"/>
                     <p:menuitem value="Adopciones"/>
@@ -35,8 +35,10 @@
             </h:form>
         </div>
     </div>
+
     <p:panelGrid columns="1" style="margin-left: 12pc; margin-right:12pc;margin-top: 3pc">
         <p:panel id="basic" header="Descripción" footer="Información admin" style="background-color: gray">
+
             <h:panelGrid columns="2">
                 <p:graphicImage value="imagenes/admin/admin.png" />
                 <h:outputText value="Es capáz de la creación de nuevos usuarios (empleado),
@@ -45,6 +47,7 @@
                 las solicitudes de adopción así como desaprobar o aprobar dichas solicitudes." style="color: black"/>
                 <div>
                     <h:outputText value="#{administradorBean.infoUser()}" style="color: black"/>
+                    <p:messages id="msgs"/>
                 </div>
             </h:panelGrid>
         </p:panel>

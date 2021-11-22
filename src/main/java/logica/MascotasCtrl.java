@@ -1,8 +1,14 @@
 package logica;
 
 import modelo.Mascota;
+import org.primefaces.model.file.UploadedFile;
+import org.primefaces.shaded.commons.io.FilenameUtils;
+import org.primefaces.shaded.commons.io.IOUtils;
 import persistencia.MascotaDao;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MascotasCtrl {
@@ -55,4 +61,8 @@ public class MascotasCtrl {
         }
         return null;
     }
+
+
+
+
 }

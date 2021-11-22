@@ -12,11 +12,9 @@
     <artifactId>springprime</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springprime</name>
-    <description>Ejercicio Spring PrimeFaces</description>
+    <description>Proyecto adopcion mascotas</description>
     <properties>
         <java.version>11</java.version>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
@@ -28,6 +26,7 @@
             <artifactId>primefaces</artifactId>
             <version>8.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
@@ -45,11 +44,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -59,13 +53,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
@@ -82,5 +78,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

@@ -40,7 +40,7 @@ public class RegistroBean implements Serializable {
         user.setContraseña(contraseña);
         user.setEmail(email);
         user.setTipoUsuario(3);
-        if(id!=0 && nombre!="" && contraseña!="" && email!=""){
+        if(id!=0 || nombre!="" || contraseña!="" || email!=""){
             UsuariosCtrl ct=new UsuariosCtrl();
             if(ct.agregarUsuario(user)){
                 id=0;

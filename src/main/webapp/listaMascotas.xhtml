@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Usuario Administrador</title>
+</h:head>
+<h:body style="background-color: bisque">
+    <div class="ui-g">
+        <div class="ui-g-1"><p:graphicImage value="imagenes/iconos/adopcion.png"/></div>
+        <div class="ui-g-10">
+            <h:form>
+                <p:menubar>
+
+                    <p:menuitem value="Lista de mascotas" style="font-size: 30px;"/>
+                    <f:facet name="options">
+                        <p:button value="Atras" icon="ui-icon-arrowthick-1-w" outcome="administrador.xhtml" style="background-color: crimson"/>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+    </div>
+    <p:dataTable var="car" value="" style="margin-left: 70px; margin-right:70px ">
+        <p:column headerText="Id">
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column headerText="Nombre">
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column headerText="Tipo Animal">
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column headerText="Edad">
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column headerText="Fecha Adopcion">
+            <h:outputText value="" />
+        </p:column>
+
+        <p:column headerText="Foto">
+            <h:outputText value="" />
+        </p:column>
+    </p:dataTable>
+</h:body>
+</html>

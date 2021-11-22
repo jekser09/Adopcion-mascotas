@@ -7,7 +7,6 @@ public class Mascota {
 
     private String nombre="";
     private String tipoAnimal="";
-    private String raza="";
     private String foto;
     private int edad;
     private Date fechaAdopcion;
@@ -30,14 +29,6 @@ public class Mascota {
 
     public void setTipoAnimal(String tipoAnimal) {
         this.tipoAnimal = tipoAnimal;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
     }
 
     public String getFoto() {

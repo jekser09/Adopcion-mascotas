@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 import util.SesionActual;
-
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -25,13 +23,8 @@ public class InicioSesionBean implements Serializable {
     private Integer id=0;
     private String contraseña;
 
-    @PostConstruct
-    public void init(){
-
-    }
-
     public String validar(){
-        if(id!=0 && contraseña!="") {
+        if(id!=0 && contraseña!=null) {
             UsuariosCtrl user = new UsuariosCtrl();
             SesionActual sa=new SesionActual();
             int n = user.iniciarSesion(this.id, this.contraseña);
