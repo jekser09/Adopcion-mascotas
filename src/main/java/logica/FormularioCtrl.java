@@ -2,8 +2,6 @@ package logica;
 
 import modelo.Formulario;
 import persistencia.FormularioDao;
-
-import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class FormularioCtrl {
@@ -50,4 +48,20 @@ public class FormularioCtrl {
         return null;
     }
 
+    public boolean aprobarForm(int idAdoptante,boolean aprobar){
+        if(formularios.isEmpty()){
+            return false;
+        }
+
+        for(int i=0;i<formularios.size();i++){
+            if(formularios.get(i).getIdAdoptante()==idAdoptante){
+                Formulario formulario=formularios.get(i);
+                formulario.setAprobar(aprobar);
+                formularios.set(i,formulario);
+                actualizarPersistencia();
+                return true;
+            }
+        }
+        return false;
+    }
 }

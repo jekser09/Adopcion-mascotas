@@ -1,33 +1,27 @@
 package persistencia;
 
-import modelo.Mascota;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
+import modelo.Solicitud;
+import java.io.*;
 import java.util.ArrayList;
 
-public class MascotaDao {
+public class SolicitudDao {
+    private final String NOMBREAP = "solicitudes.asi";
+    private ArrayList<Solicitud> solicitudes;
 
-    private final String NOMBREAP = "mascotas.asi";
-    private ArrayList<Mascota> mascotas;
-
-    public MascotaDao() {
+    public SolicitudDao() {
         if(abrirArchivo()==null){
             nuevoArchivo();
         }
     }
 
     private void nuevoArchivo(){
-        mascotas=new ArrayList();
+        solicitudes=new ArrayList();
         FileOutputStream fo = null;
-
         try {
             fo = new FileOutputStream(NOMBREAP);
             ObjectOutputStream oo = new ObjectOutputStream(fo);
-            oo.writeObject(mascotas);
+            oo.writeObject(solicitudes);
             oo.close();
         } catch (FileNotFoundException var16) {
             var16.printStackTrace();
@@ -41,13 +35,13 @@ public class MascotaDao {
         }
     }
 
-    public boolean guardarArchivo(ArrayList<Mascota> mascotas) {
+    public boolean guardarArchivo(ArrayList<Solicitud> solicitudes) {
         FileOutputStream fo = null;
-        this.mascotas=mascotas;
+        this.solicitudes=solicitudes;
         try {
             fo = new FileOutputStream(NOMBREAP);
             ObjectOutputStream oo = new ObjectOutputStream(fo);
-            oo.writeObject(this.mascotas);
+            oo.writeObject(this.solicitudes);
             oo.close();
             return true;
         } catch (FileNotFoundException var16) {
@@ -63,16 +57,16 @@ public class MascotaDao {
         return false;
     }
 
-    public ArrayList<Mascota> abrirArchivo() {
+    public ArrayList<Solicitud> abrirArchivo() {
         FileInputStream fi = null;
         try {
             try {
                 fi = new FileInputStream(NOMBREAP);
                 ObjectInputStream oi = new ObjectInputStream(fi);
-                this.mascotas = (ArrayList<Mascota>)oi.readObject();
+                this.solicitudes = (ArrayList<Solicitud>)oi.readObject();
                 oi.close();
                 fi.close();
-                return mascotas;
+                return solicitudes;
             } catch (FileNotFoundException var10) {
                 nuevoArchivo();
             } catch (IOException var11) {

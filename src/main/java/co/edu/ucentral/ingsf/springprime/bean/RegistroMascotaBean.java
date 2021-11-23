@@ -4,7 +4,6 @@ import logica.MascotasCtrl;
 import lombok.Getter;
 import lombok.Setter;
 import modelo.Mascota;
-import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 import org.springframework.stereotype.Component;
 import javax.faces.application.FacesMessage;
@@ -13,9 +12,6 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.swing.*;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -35,8 +31,7 @@ public class RegistroMascotaBean implements Serializable {
 
 
     public void registrar(){
-        /*FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(file.getFileName()));*/
+
         MascotasCtrl ctrl=new MascotasCtrl();
         if(nombre!=null && edad!=null && tipo!=null && id!=null){
             Mascota mascota=new Mascota();
@@ -62,10 +57,5 @@ public class RegistroMascotaBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage("Rellene todos los campos"));
         }
-    }
-
-    public void handleFileUpload(FileUploadEvent event) {
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(event.getFile().getFileName()));
     }
 }

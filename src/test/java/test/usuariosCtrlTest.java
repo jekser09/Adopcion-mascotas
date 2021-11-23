@@ -22,11 +22,11 @@ class usuariosCtrlTest {
         /*ADMINISTRADOR*/
         Usuario user1=new Usuario();
         UsuariosCtrl ctrl=new UsuariosCtrl();
-        user1.setId(3);
-        user1.setNombre("Adoptante");
+        user1.setId(1);
+        user1.setNombre("Admin");
         user1.setEmail("gmail");
         user1.setContraseña("1234");
-        user1.setTipoUsuario(3);
+        user1.setTipoUsuario(1);
         ctrl.agregarUsuario(user1);
     }
 
@@ -34,8 +34,6 @@ class usuariosCtrlTest {
     void iniciarSesion() {
         UsuariosCtrl ctrl=new UsuariosCtrl();
         ctrl.iniciarSesion(9,"145");
-
-
         if(ctrl.iniciarSesion(8,"145")==3) System.out.println("adoptante");
     }
 

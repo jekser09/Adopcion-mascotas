@@ -1,14 +1,7 @@
 package logica;
 
 import modelo.Mascota;
-import org.primefaces.model.file.UploadedFile;
-import org.primefaces.shaded.commons.io.FilenameUtils;
-import org.primefaces.shaded.commons.io.IOUtils;
 import persistencia.MascotaDao;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MascotasCtrl {
@@ -28,6 +21,23 @@ public class MascotasCtrl {
     public void actualizarPersistencia(){
         mdao=new MascotaDao();
         mdao.guardarArchivo(mascotas);
+    }
+
+    public boolean estadoMascota(int id,String adoptada){
+        if(mascotas==null){
+            cargarMascota();
+            return false;
+        }
+        for(int i=0;i<mascotas.size();i++){
+            if(id==mascotas.get(i).getId()){
+                Mascota mascota=mascotas.get(i);
+                mascota.setAdoptado(adoptada);
+                mascotas.set(i,mascota);
+                actualizarPersistencia();
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean agregarMascota(Mascota miau){

@@ -15,13 +15,6 @@ public class UsuariosCtrl {
     public UsuariosCtrl(){
         cargarUsuarios();
     }
-    public int getSesionActual() {
-        return sesionActual;
-    }
-
-    public void setSesionActual(int sesionActual) {
-        this.sesionActual = sesionActual;
-    }
 
     public void cargarUsuarios(){
         udao=new UsuarioDao();
@@ -79,5 +72,22 @@ public class UsuariosCtrl {
             }
         }
         return null;
+    }
+
+    public boolean asignarMascota(int idAdopta,int idMascota,String nombreM){
+        if(listaUsuarios.isEmpty()){
+            return false;
+        }
+        for(int i=0;i<listaUsuarios.size();i++){
+            if(listaUsuarios.get(i).getId()==idAdopta){
+                Usuario usuario=listaUsuarios.get(i);
+                usuario.setIdMascota(idMascota);
+                usuario.setNombreMascota(nombreM);
+                listaUsuarios.set(i,usuario);
+                actualizarPersistencia();
+                return true;
+            }
+        }
+        return false;
     }
 }

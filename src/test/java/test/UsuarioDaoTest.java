@@ -17,7 +17,8 @@ class UsuarioDaoTest {
         user.setNombre("carlos");
         user.setEmail("gmail");
         user.setTipoUsuario(1);
-        user.setIdMascota("ramon");
+        user.setIdMascota(0);
+        user.setNombreMascota("");
         usuarios.add(user);
         arch.guardarArchivo(usuarios);
     }

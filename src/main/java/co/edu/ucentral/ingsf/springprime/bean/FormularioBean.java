@@ -6,7 +6,6 @@ import lombok.Setter;
 import modelo.Formulario;
 import org.springframework.stereotype.Component;
 import util.SesionActual;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -20,20 +19,38 @@ import javax.faces.context.FacesContext;
 @Setter
 @RequestScoped
 public class FormularioBean {
-    Formulario form=new Formulario();
+
     FormularioCtrl ctrl=new FormularioCtrl();
-    SesionActual sa=new SesionActual();
+
+    private int idAdopta;
+    private String nombreAdopta;
+    private int ingresos;
+    private String email;
+    private boolean algunaMascota;
+    private int mascotas;
+    private boolean acepta;
 
     public void guardar(){
-        form.setIdAdoptante(sa.abrirArchivo().getId());
-        form.setNombreAdoptante(sa.abrirArchivo().getNombre());
-        if(form.isAcepta()){
+        Formulario form=new Formulario();
+        SesionActual sa=new SesionActual();
+        idAdopta=sa.abrirArchivo().getId();
+        nombreAdopta=sa.abrirArchivo().getNombre();
+        form.setIngresosMes(ingresos);
+        form.setEmail(email);
+        form.setMascotasPrevias(algunaMascota);
+        form.setCantMascotasPrevias(mascotas);
+        form.setAcepta(acepta);
+        form.setIdAdoptante(idAdopta);
+        form.setNombreAdoptante(nombreAdopta);
+        if(acepta){
             if(ctrl.guardarFormulario(form)){
-                form.setIngresosMes(0);
-                form.setMascotasPrevias(false);
-                form.setCantMascotasPrevias(0);
-                form.setAcepta(false);
-                form.setEmail("");
+                idAdopta=0;
+                nombreAdopta="";
+                ingresos=0;
+                email="";
+                algunaMascota=false;
+                mascotas=0;
+                acepta=false;
                 FacesContext.getCurrentInstance().addMessage(null,
                         new FacesMessage("Formulario guardado"));
             }else{
@@ -44,6 +61,5 @@ public class FormularioBean {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage("para guardar el formulario debe aceptar el compromiso"));
         }
-
     }
 }

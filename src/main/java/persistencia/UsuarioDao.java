@@ -1,7 +1,6 @@
 package persistencia;
 
 import modelo.Usuario;
-import java.awt.Component;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,7 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 public class UsuarioDao {
 
@@ -27,7 +26,7 @@ public class UsuarioDao {
             FileOutputStream fo = null;
 
             try {
-                fo = new FileOutputStream("usuarios.asi");
+                fo = new FileOutputStream(NOMBREAP);
                 ObjectOutputStream oo = new ObjectOutputStream(fo);
                 oo.writeObject(usuarios);
                 oo.close();
@@ -47,7 +46,7 @@ public class UsuarioDao {
             FileOutputStream fo = null;
             this.usuarios=usuarios;
             try {
-                fo = new FileOutputStream("usuarios.asi");
+                fo = new FileOutputStream(NOMBREAP);
                 ObjectOutputStream oo = new ObjectOutputStream(fo);
                 oo.writeObject(this.usuarios);
                 oo.close();
@@ -69,7 +68,7 @@ public class UsuarioDao {
             FileInputStream fi = null;
             try {
                 try {
-                    fi = new FileInputStream("usuarios.asi");
+                    fi = new FileInputStream(NOMBREAP);
                     ObjectInputStream oi = new ObjectInputStream(fi);
                     this.usuarios = (ArrayList<Usuario>)oi.readObject();
                     oi.close();

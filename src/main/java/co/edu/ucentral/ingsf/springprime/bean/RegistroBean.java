@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import modelo.Usuario;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -28,11 +26,6 @@ public class RegistroBean implements Serializable {
     private String contraseña;
     private String email;
 
-    @PostConstruct
-    public void init(){
-
-    }
-
     public void registro(){
         Usuario user=new Usuario();
         user.setId(id);
@@ -40,7 +33,8 @@ public class RegistroBean implements Serializable {
         user.setContraseña(contraseña);
         user.setEmail(email);
         user.setTipoUsuario(3);
-        if(id!=0 || nombre!="" || contraseña!="" || email!=""){
+
+        if(id!=0 || nombre.equals("") || contraseña.equals("") || email.equals("")){
             UsuariosCtrl ct=new UsuariosCtrl();
             if(ct.agregarUsuario(user)){
                 id=0;

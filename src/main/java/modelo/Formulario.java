@@ -12,6 +12,9 @@ public class Formulario implements Serializable {
     private boolean aprobar=false;
     private boolean acepta;
 
+    public Formulario() {
+    }
+
     public boolean isAcepta() {
         return acepta;
     }
@@ -34,11 +37,6 @@ public class Formulario implements Serializable {
 
     public void setIngresosMes(double ingresosMes) {
         this.ingresosMes = ingresosMes;
-    }
-
-
-
-    public Formulario() {
     }
 
     public int getIdAdoptante() {

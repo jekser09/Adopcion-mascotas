@@ -9,7 +9,7 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Lista Formularios</title>
+    <title>Solicitudes de Adopciones</title>
 </h:head>
 <h:body style="background-color: bisque">
     <div class="ui-g">
@@ -17,7 +17,7 @@
         <div class="ui-g-10">
             <h:form>
                 <p:menubar>
-                    <p:menuitem value="Lista Formularios" style="font-size: 30px;"/>
+                    <p:menuitem value="Lista Adopciones" style="font-size: 30px;"/>
                     <f:facet name="options">
                         <p:button value="Atras" icon="ui-icon-arrowthick-1-w" outcome="administrador.xhtml" style="background-color: crimson"/>
                     </f:facet>
@@ -26,23 +26,25 @@
         </div>
     </div>
     <h:form id="form">
-        <p:commandButton value="Actualizar" update="forms" action="#{listaFormulariosBean.act()}"/>
-        <p:dataGrid id="forms" value="#{listaFormulariosBean.formularios}" var="lista" columns="3" layout="grid">
-            <p:panel id="panel" header="Id Usuario: #{lista.idAdoptante}" style="text-align: center;">
+        <p:commandButton value="Actualizar" update="forms" action="#{solicitudesAdopcionBean.act()}"/>
+        <p:dataGrid id="forms" value="#{solicitudesAdopcionBean.solicitudes}" var="lista" columns="3" layout="grid">
+            <p:panel id="panel" header="Lista Solicitudes de Adopcion" style="text-align: center;">
                 <h:panelGrid columns="1" style="width: 100%">
-                    <h:outputText id="txtNombre" value="Nombre: #{lista.nombreAdoptante}"/>
-                    <h:outputText id="txtIngresos" value="Ingresos Mes: $#{lista.ingresosMes}"/>
-                    <h:outputText id="txtEmail" value="Email: #{lista.email}"/>
-                    <h:outputText id="txtMascotasP" value="Cantidad Mascotas: #{lista.cantMascotasPrevias}"/>
+                    <h:outputText id="txtIdAe" value="Id Usuario: #{lista.idAdoptante}"/>
+                    <h:outputText id="txtNombreA" value="Id Usuario: #{lista.nombreAdopta}"/>
+                    <h:outputText id="txtIdM" value="Id Mascota: #{lista.idMascota}"/>
+                    <h:outputText id="txtNombreM" value="Nombre Mascota: #{lista.nombreMascota}"/>
                     <h:panelGrid columns="2">
-                        <h:outputText value="Formulario aprobado?"/>
-                        <p:selectBooleanCheckbox id="cbAprobado" value="#{lista.aprobar}" disabled="true" style="margin-left:70px"/>
+                        <h:outputText value="Solicitud aprobada?"/>
+                        <p:selectBooleanCheckbox id="cbAprobado" value="#{lista.aprueba}" disabled="true" style="margin-left:70px"/>
                     </h:panelGrid>
                     <p:messages/>
-                    <p:commandButton value="Aprobar" update="panel" action="#{listaFormulariosBean.aprobar(lista.idAdoptante)}" disabled="#{listaFormulariosBean.habilitarBoton(lista.idAdoptante)}" style="background-color: greenyellow"/>
+                    <p:commandButton value="Aprobar" update="panel" action="#{solicitudesAdopcionBean.aprobar(lista.idAdoptante,lista.idMascota,lista.nombreMascota)}"
+                                     disabled="#{solicitudesAdopcionBean.habilitarBoton(lista.idAdoptante)}" style="background-color: greenyellow"/>
                 </h:panelGrid>
             </p:panel>
         </p:dataGrid>
     </h:form>
 </h:body>
+
 </html>

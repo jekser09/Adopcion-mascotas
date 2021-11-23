@@ -8,9 +8,17 @@ public class Usuario implements Serializable {
     private String nombre;
     private String contraseña;
     private String email;
-    private String idMascota="sin adoptar";
+    private int idMascota=0;
+    private String nombreMascota="Sin adoptar";
     private int tipoUsuario;
 
+    public String getNombreMascota() {
+        return nombreMascota;
+    }
+
+    public void setNombreMascota(String nombreMascota) {
+        this.nombreMascota = nombreMascota;
+    }
 
     public Usuario(){
     }
@@ -39,12 +47,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public String getIdMascota() {
+    public int getIdMascota() {
         return idMascota;
     }
 
-    public void setIdMascota(String idMascota) {
-        this.idMascota = idMascota;
+    public void setIdMascota(int idMascota) {
+        this.idMascota= idMascota;
     }
 
     public int getTipoUsuario() {
