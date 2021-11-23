@@ -32,6 +32,11 @@ public class ListaMascotasBean {
         mascotas=mascotaDao.abrirArchivo();
     }
 
+    public void prueba(){
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("no sirve primefaces"));
+    }
+
 
 
 }

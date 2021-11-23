@@ -17,10 +17,8 @@
         <div class="ui-g-10">
             <h:form>
                 <p:menubar>
-                    <p:menuitem value="Perfil"/>
-                    <p:menuitem value="Mascotas"/>
-                    <p:menuitem value="Formulario"/>
-                    <p:menuitem value="Adoptante" style="font-size: 25px; margin-left: 230px" url="administrador.xhtml"/>
+                    <p:menuitem value="Formulario" url="formulario.xhtml"/>
+                    <p:menuitem value="Adoptante" style="font-size: 25px; margin-left: 320px" url="administrador.xhtml"/>
                     <f:facet name="options">
                         <p:button value="Cerrar Sesion" icon="ui-icon-cancel" outcome="index.xhtml" style="background-color: crimson"/>
                     </f:facet>
@@ -29,7 +27,7 @@
         </div>
     </div>
     <p:panelGrid columns="1" style="margin-left: 12pc; margin-right:12pc;margin-top: 3pc">
-        <p:panel id="basic" header="Descripción" footer="Información admin" style="background-color: gray">
+        <p:panel id="basic" header="Descripción" footer="Información adoptante" style="background-color: gray">
 
             <h:panelGrid columns="2">
                 <p:graphicImage value="imagenes/usuarios/adopta.png" />
@@ -42,6 +40,42 @@
             </h:panelGrid>
         </p:panel>
     </p:panelGrid>
+
+    <h:form id="form" >
+        <h3 style="margin-left:30pc;font-size: 40px">Lista Mascotas</h3>
+        <p:commandButton update="form" value="actualizar" action="#{listaMascotasBean.prueba()}" process=":form" style="margin-left: 70px"/>
+        <p:messages/>
+        <p:dataTable  id="tabla" var="lista" value="#{listaMascotasBean.mascotas}" style="margin-left: 70px; margin-right:70px; text-align: center">
+
+            <p:column headerText="Foto" style="background-color: #5AB0F2; color: black; border-color: black">
+                <p:graphicImage value="#{lista.foto}"/>
+            </p:column>
+
+            <p:column headerText="Id" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{lista.id}" />
+            </p:column>
+
+            <p:column headerText="Nombre" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{lista.nombre}" />
+            </p:column>
+
+            <p:column headerText="Edad" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{lista.edad}" />
+            </p:column>
+
+            <p:column headerText="Tipo Animal" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{lista.tipoAnimal}" />
+            </p:column>
+
+            <p:column headerText="¿Esta adoptado?" style="background-color: #5AB0F2; color: black;border-color: black">
+                <h:outputText value="#{lista.adoptado}" />
+            </p:column>
+
+            <p:column headerText="---------" style="background-color: #5AB0F2; color: black;border-color: black">
+                <p:button value="Adoptar" style="background-color: #1CE658; color: black"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
 
 </h:body>
 </html>
