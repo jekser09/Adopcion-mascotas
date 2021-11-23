@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,16 +28,15 @@ public class ListaMascotasBean {
 
     private List<Mascota> mascotas;
     private MascotaDao mascotaDao;
+
     public ListaMascotasBean(){
         mascotaDao=new MascotaDao();
         mascotas=mascotaDao.abrirArchivo();
     }
 
-    public void prueba(){
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("no sirve primefaces"));
+    @PostConstruct
+    public void actualizar() {
+        mascotaDao=new MascotaDao();
+        mascotas=mascotaDao.abrirArchivo();
     }
-
-
-
 }

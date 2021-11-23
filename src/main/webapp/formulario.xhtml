@@ -23,31 +23,28 @@
             </h:form>
         </div>
     </div>
-    <h:form style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc">
+    <h:form id="form" style="margin-left: 25pc;width: 30pc;height: 34pc;margin-top: 5pc">
         <p:panel id="panel" header="REGISTRO FORMULARIO" style="background-color: #F2A341;text-align: left">
             <p:messages id="msgs"/>
             <h:panelGrid columns="2" style="">
-                <p:outputLabel for="txtNombre" value="Nombre completo:" style="color: black" />
-                <p:inputText id="txtNombre" label="Nombre completo" value="#{registroBean.nombre}" style="color: black"/>
                 <p:outputLabel for="slDinero" value="Ingresos mensuales:" style="color: black" />
                 <p:panelGrid columns="1" >
-                    <p:inputNumber id="slDinero" label="Ingresos mensuales:" min="10000000" max="6000000" stepFactor="50" suffix="$"/>
+                    <p:inputNumber id="slDinero" value="#{formularioBean.form.ingresosMes}" label="Ingresos mensuales:" min="10000000" max="6000000" stepFactor="50" suffix="$"/>
                     <p:slider for="slDinero" minValue="1000000" maxValue="6000000" step="50"/>
                 </p:panelGrid>
                 <p:outputLabel for="txtEmail" value="Email:" style="color: black" />
-                <p:inputText id="txtEmail" label="Email" value="#{registroBean.email}" style="color: black"/>
+                <p:inputText id="txtEmail" label="Email" value="#{formularioBean.form.email}" style="color: black"><f:validateLength minimum="4"/></p:inputText>
                 <h:outputText value="Vive con alguna mascota?:" style="text-justify: auto;color: black;border-color:black"/>
-                <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Si" style="color: black"/>
+                <p:selectBooleanCheckbox value="#{formularioBean.form.mascotasPrevias}" itemLabel="Si" style="color: black"/>
                 <h:outputLabel for="cm" value="Cuantas?" style="color: black"/>
-                <p:inputText id="cm" label="Cuantas?"/>
+                <p:inputText id="cm" label="Cuantas?" value="#{formularioBean.form.cantMascotasPrevias}"/>
             </h:panelGrid>
             <h:panelGrid columns="1" style="border-style: dashed;border-color: black">
-                <h:outputText value="Al marcar esta casilla se compromete a no devolver a la mascota bajo ninguna circunstancia y una vez
+                <h:outputText value="Compromiso: Al marcar esta casilla se compromete a no devolver a la mascota bajo ninguna circunstancia y una vez
                     envie este formulario se utilizara su correo electronico como firma para saber que aceptó esta condicion." style="text-justify: auto;color: black;border-color:black"/>
-                <p:selectBooleanCheckbox value="#{selectBooleanView.value1}" itemLabel="Acepto" style="color: black"/>
+                <p:selectBooleanCheckbox value="#{formularioBean.form.acepta}" itemLabel="Acepto" style="color: black"/>
             </h:panelGrid>
-            <p:commandButton id="btnReUsuarios" value="Enviar" update="panel" action="#{registroBean.registro()}" style="background-color: cyan"/>
-
+            <p:commandButton value="Enviar" update="form:panel" action="#{formularioBean.guardar()}" style="background-color: cyan"/>
         </p:panel>
     </h:form>
 </h:body>

@@ -55,7 +55,7 @@ public class Usuario implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 

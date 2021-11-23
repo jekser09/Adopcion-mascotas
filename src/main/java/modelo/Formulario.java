@@ -1,13 +1,24 @@
 package modelo;
 
-public class Formulario {
+import java.io.Serializable;
+
+public class Formulario implements Serializable {
     private int IdAdoptante;
     private String nombreAdoptante;
     private double ingresosMes;
     private String email;
     private boolean mascotasPrevias;
     private int cantMascotasPrevias;
-    private boolean aprobar;
+    private boolean aprobar=false;
+    private boolean acepta;
+
+    public boolean isAcepta() {
+        return acepta;
+    }
+
+    public void setAcepta(boolean acepta) {
+        this.acepta = acepta;
+    }
 
     public boolean isAprobar() {
         return aprobar;

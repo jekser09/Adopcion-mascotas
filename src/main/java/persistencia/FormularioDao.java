@@ -27,9 +27,8 @@ public class FormularioDao{
     private void nuevoArchivo(){
         formularios=new ArrayList();
         FileOutputStream fo = null;
-
         try {
-            fo = new FileOutputStream("formularios.asi");
+            fo = new FileOutputStream(NOMBREAP);
             ObjectOutputStream oo = new ObjectOutputStream(fo);
             oo.writeObject(formularios);
             oo.close();
@@ -49,7 +48,7 @@ public class FormularioDao{
         FileOutputStream fo = null;
         this.formularios=formularios;
         try {
-            fo = new FileOutputStream("formularios.asi");
+            fo = new FileOutputStream(NOMBREAP);
             ObjectOutputStream oo = new ObjectOutputStream(fo);
             oo.writeObject(this.formularios);
             oo.close();
@@ -71,7 +70,7 @@ public class FormularioDao{
         FileInputStream fi = null;
         try {
             try {
-                fi = new FileInputStream("formularios.asi");
+                fi = new FileInputStream(NOMBREAP);
                 ObjectInputStream oi = new ObjectInputStream(fi);
                 this.formularios = (ArrayList<Formulario>)oi.readObject();
                 oi.close();

@@ -40,14 +40,13 @@
         <p:panel id="basic" header="Descripción" footer="Información admin" style="background-color: gray">
 
             <h:panelGrid columns="2">
-                <p:graphicImage value="imagenes/admin/admin.png" />
+                <p:graphicImage value="imagenes/usuarios/admin.png" />
                 <h:outputText value="Es capáz de la creación de nuevos usuarios (empleado),
                 agregar, editar o eliminar la información de las mascotas, visualizar la lista de mascotas,
                 visualizar la lista de formularios así como desaprobar o aprobar formularios y visualizar
                 las solicitudes de adopción así como desaprobar o aprobar dichas solicitudes." style="color: black"/>
                 <div>
-                    <h:outputText value="#{administradorBean.infoUser()}" style="color: black"/>
-                    <p:messages id="msgs"/>
+                    <h:outputText value="#{administradorBean.info()}" style="color: black"/>
                 </div>
             </h:panelGrid>
         </p:panel>

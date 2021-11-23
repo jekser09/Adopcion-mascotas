@@ -18,7 +18,7 @@
             <h:form>
                 <p:menubar>
                     <p:menuitem value="Formulario" url="formulario.xhtml"/>
-                    <p:menuitem value="Adoptante" style="font-size: 25px; margin-left: 320px" url="administrador.xhtml"/>
+                    <p:menuitem value="Adoptante" style="font-size: 25px;background-color: black;color: white;margin-left: 320px" disabled="true"/>
                     <f:facet name="options">
                         <p:button value="Cerrar Sesion" icon="ui-icon-cancel" outcome="index.xhtml" style="background-color: crimson"/>
                     </f:facet>
@@ -34,7 +34,7 @@
                 <h:outputText value="Es capáz de generar solicitudes de adopcion solo cuando rellene, envie y
                                     y le aprueben el formulario y es capaz de visualizar la lista de mascotas" style="color: black"/>
                 <div>
-                    <h:outputText value="#{adoptanteBean.infoUser()}" style="color: black"/>
+                    <h:outputText value="#{adoptanteBean.info()}" style="color: black"/>
                     <p:messages id="msgs"/>
                 </div>
             </h:panelGrid>
@@ -43,8 +43,8 @@
 
     <h:form id="form" >
         <h3 style="margin-left:30pc;font-size: 40px">Lista Mascotas</h3>
-        <p:commandButton update="form" value="actualizar" action="#{listaMascotasBean.prueba()}" process=":form" style="margin-left: 70px"/>
-        <p:messages/>
+        <p:commandButton update=":form:tabla" value="actualizar" action="#{listaMascotasBean.actualizar()}" style="margin-left: 70px"/>
+
         <p:dataTable  id="tabla" var="lista" value="#{listaMascotasBean.mascotas}" style="margin-left: 70px; margin-right:70px; text-align: center">
 
             <p:column headerText="Foto" style="background-color: #5AB0F2; color: black; border-color: black">

@@ -1,12 +1,12 @@
 package co.edu.ucentral.ingsf.springprime.bean;
 
 
+import logica.UsuariosCtrl;
 import lombok.Getter;
 import lombok.Setter;
-import org.primefaces.PrimeFaces;
 import org.springframework.stereotype.Component;
 import util.SesionActual;
-import javax.annotation.PostConstruct;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
@@ -23,11 +23,16 @@ import java.io.Serializable;
 @RequestScoped
 public class AdministradorBean implements Serializable {
 
-    public String infoUser(){
-        SesionActual sa=new SesionActual();
-        return sa.abrirArchivo();
+    SesionActual sa=new SesionActual();
+
+    public void init(){
 
     }
-
+    public String info(){
+        return "|NOMBRE:"+sa.abrirArchivo().getNombre()+
+                " |Id:"+sa.abrirArchivo().getId()+
+                " |Email:"+sa.abrirArchivo().getEmail()+
+                " |tipo Usuario:"+sa.abrirArchivo().getTipoUsuario()+" |";
+    }
 
 }

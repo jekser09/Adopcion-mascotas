@@ -1,28 +1,27 @@
 package test;
 
+import co.edu.ucentral.ingsf.springprime.bean.InicioSesionBean;
+import logica.UsuariosCtrl;
 import org.junit.jupiter.api.Test;
 import util.SesionActual;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SesionActualTest {
 
     @Test
     void crearArchivo() {
-        SesionActual sa=new SesionActual();
-        sa.crearArchivo();
+
     }
 
     @Test
     void guardarArchivo() {
-        SesionActual sa=new SesionActual();
-        sa.guardarArchivo("probando\nmetodo");
+        SesionActual p=new SesionActual();
+        UsuariosCtrl ct=new UsuariosCtrl();
+        p.guardarArchivo(ct.buscarUsuario(1));
     }
 
     @Test
     void abrirArchivo() {
-        SesionActual sa=new SesionActual();
-        String texto=sa.abrirArchivo();
-        System.out.print(texto);
+        SesionActual p=new SesionActual();
+        System.out.print(p.abrirArchivo().getTipoUsuario());
     }
 }

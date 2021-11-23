@@ -26,7 +26,7 @@
         </div>
     </div>
     <h:form id="form" >
-        <p:commandButton update="form" value="actualizar" action="#{listaMascotasBean.prueba()}" process=":form"/>
+        <p:commandButton update=":form:tabla" value="actualizar" action="#{listaMascotasBean.actualizar()}"/>
         <p:messages/>
         <p:dataTable  id="tabla" var="lista" value="#{listaMascotasBean.mascotas}" style="margin-left: 70px; margin-right:70px;margin-top: 15px; text-align: center">
 

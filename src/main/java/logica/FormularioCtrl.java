@@ -30,12 +30,12 @@ public class FormularioCtrl {
         }
         for(int i=0;i<formularios.size();i++){
             if(formulario.getIdAdoptante()==formularios.get(i).getIdAdoptante()){
-                return true;
+                return false;
             }
         }
         formularios.add(formulario);
         actualizarPersistencia();
-        return false;
+        return true;
     }
 
     public Formulario buscarFormulario(int id){

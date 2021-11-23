@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 import util.SesionActual;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -29,24 +30,15 @@ public class InicioSesionBean implements Serializable {
             SesionActual sa=new SesionActual();
             int n = user.iniciarSesion(this.id, this.contraseña);
             if (n == 1){
-                String sesion= "|ID: "+String.valueOf(user.buscarUsuario(id).getId())+" |Nombre: "+user.buscarUsuario(id).getNombre()+
-                        " |Email: "+user.buscarUsuario(id).getEmail()+" |Id-Mascota: "+user.buscarUsuario(id).getIdMascota()+
-                        " |Tipo-Usuario: "+user.buscarUsuario(id).getTipoUsuario()+" |";
-                sa.guardarArchivo(sesion);
+                sa.guardarArchivo(user.buscarUsuario(id));
                 return "administrador";
             }
             if (n == 2){
-                String sesion= " ID: "+String.valueOf(user.buscarUsuario(id).getId())+" |Nombre: "+user.buscarUsuario(id).getNombre()+
-                        " |Email: "+user.buscarUsuario(id).getEmail()+" |Id-Mascota: "+user.buscarUsuario(id).getIdMascota()+
-                        " |Tipo-Usuario: "+user.buscarUsuario(id).getTipoUsuario();
-                sa.guardarArchivo(sesion);
+                sa.guardarArchivo(user.buscarUsuario(id));
                 return "empleado";
             }
             if (n == 3){
-                String sesion= " ID: "+String.valueOf(user.buscarUsuario(id).getId())+" |Nombre: "+user.buscarUsuario(id).getNombre()+
-                        " |Email: "+user.buscarUsuario(id).getEmail()+" |Id-Mascota: "+user.buscarUsuario(id).getIdMascota()+
-                        " |Tipo-Usuario: "+user.buscarUsuario(id).getTipoUsuario();
-                sa.guardarArchivo(sesion);
+                sa.guardarArchivo(user.buscarUsuario(id));
                 return "adoptante";
             }
             FacesContext.getCurrentInstance().addMessage(null,
