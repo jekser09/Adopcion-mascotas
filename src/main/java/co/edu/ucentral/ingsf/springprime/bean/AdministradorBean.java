@@ -19,7 +19,7 @@ import java.io.Serializable;
 @RequestScoped
 public class AdministradorBean implements Serializable {
 
-    SesionActual sa=new SesionActual();
+    private SesionActual sa=new SesionActual();
 
     public String info(){
         return "|NOMBRE:"+sa.abrirArchivo().getNombre()+

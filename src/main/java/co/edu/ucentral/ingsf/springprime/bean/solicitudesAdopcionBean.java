@@ -23,8 +23,8 @@ import java.util.List;
 @Setter
 @RequestScoped
 public class solicitudesAdopcionBean {
-    List<Solicitud> solicitudes;
-    SolicitudDao arch;
+    private List<Solicitud> solicitudes;
+    private SolicitudDao arch;
 
     public solicitudesAdopcionBean(){
         arch=new SolicitudDao();

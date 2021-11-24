@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class FormularioCtrl {
 
-    ArrayList<Formulario> formularios;
+    private ArrayList<Formulario> formularios;
 
     public FormularioCtrl(){
         cargarFormularios();

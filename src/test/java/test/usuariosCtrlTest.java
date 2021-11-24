@@ -19,14 +19,14 @@ class usuariosCtrlTest {
 
     @Test
     void agregarUsuario() {
-        /*ADMINISTRADOR*/
+        /*Empleado*/
         Usuario user1=new Usuario();
         UsuariosCtrl ctrl=new UsuariosCtrl();
-        user1.setId(1);
-        user1.setNombre("Admin");
+        user1.setId(3);
+        user1.setNombre("prueba");
         user1.setEmail("gmail");
         user1.setContraseña("1234");
-        user1.setTipoUsuario(1);
+        user1.setTipoUsuario(2);
         ctrl.agregarUsuario(user1);
     }
 

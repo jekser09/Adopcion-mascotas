@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class SolicitudCtrl {
 
-    ArrayList<Solicitud> solicitudes;
+    private ArrayList<Solicitud> solicitudes;
 
     public SolicitudCtrl() {
         cargarSolicitudes();

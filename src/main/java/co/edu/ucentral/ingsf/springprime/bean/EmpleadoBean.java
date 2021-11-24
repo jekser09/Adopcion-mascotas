@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 @RequestScoped
 public class EmpleadoBean implements Serializable {
-    SesionActual sa=new SesionActual();
+    private SesionActual sa=new SesionActual();
     public String info(){
         return "|NOMBRE:"+sa.abrirArchivo().getNombre()+
                 " |Id:"+sa.abrirArchivo().getId()+
