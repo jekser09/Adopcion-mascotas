@@ -22,6 +22,7 @@ class UsuarioDaoTest {
         usuarios.add(user);
         arch.guardarArchivo(usuarios);
     }
+
     @Test
     void abrirArchivo(){
         UsuarioDao arch=new UsuarioDao();

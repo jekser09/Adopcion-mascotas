@@ -40,8 +40,8 @@ class usuariosCtrlTest {
     @Test
     void buscarUsuario() {
         UsuariosCtrl ctrl=new UsuariosCtrl();
-        System.out.print(ctrl.buscarUsuario(1016).getContraseña());
-        if(ctrl.buscarUsuario(1016)==null){
+        System.out.print(ctrl.buscarUsuario(1).getContraseña());
+        if(ctrl.buscarUsuario(1)==null){
             System.out.println("oks");
         }else{
             System.out.println("si estoy");

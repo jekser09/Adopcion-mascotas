@@ -23,12 +23,12 @@ import java.util.Date;
 @RequestScoped
 @SessionScoped
 public class RegistroMascotaBean implements Serializable {
+
     private String nombre;
     private Integer id;
     private Date edad;
     private String tipo;
     private UploadedFile file;
-
 
     public void registrar(){
 
@@ -58,4 +58,5 @@ public class RegistroMascotaBean implements Serializable {
                     new FacesMessage("Rellene todos los campos"));
         }
     }
+
 }

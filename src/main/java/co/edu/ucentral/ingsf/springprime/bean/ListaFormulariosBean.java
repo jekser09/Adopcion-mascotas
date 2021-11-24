@@ -22,8 +22,8 @@ import java.util.List;
 @Setter
 @RequestScoped
 public class ListaFormulariosBean implements Serializable {
-    List<Formulario> formularios;
-    FormularioDao arch;
+    private List<Formulario> formularios;
+    private FormularioDao arch;
     public ListaFormulariosBean(){
         arch=new FormularioDao();
         formularios=arch.abrirArchivo();
@@ -33,7 +33,6 @@ public class ListaFormulariosBean implements Serializable {
         arch=new FormularioDao();
         formularios=arch.abrirArchivo();
     }
-
 
     public void aprobar(int id){
         FormularioCtrl ctrl=new FormularioCtrl();

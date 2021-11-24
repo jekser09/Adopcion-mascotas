@@ -71,8 +71,4 @@ public class MascotasCtrl {
         }
         return null;
     }
-
-
-
-
 }
